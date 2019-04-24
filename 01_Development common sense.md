@@ -181,7 +181,31 @@ mutable
 DB연결, 저장 삭제 등
 
 ### View
+컨트롤러로부터 건대 받은 결과값을 가지고 사용자에게 출력할 화면을 만듦.
 
+
+## Git/ GitHub
+### Git
+깃 연습하기 딱 좋은 사이트!!!![HERE](https://learngitbranching.js.org)
+
+#### reset
+git reset --mixed => default, HEAD옮김, Staging Area비움, Working Directory 유지
+git reset --soft => HEAD옮김, Staging Area/Working Directory 유지
+git reset --hard => HEAD옮김, Staging Area 비움 / Working Directory 되돌림
+
+#### stash
+작업 중 잠시 브랜치를 변경하거나 커밋을 변경해야 한다면!?
+stash를 통해 modified 파일과 Staging Area의 변경사항을 스택형식으로 저장할 수 있음
+git stash -> 현재 상황 저장
+git stash save {name} -> {name}으로 저장
+git stash list -> 스택안의 스냅샷 리스트 확인
+git stash pop -> 후입 선출로 스냅샷 뽑아냄
+git stash stash@{number} => list로 확인한 stash중 필요한것 찝어서 뽑아냄
+git stash drop => 마지막 stash 스택 지움
+git stash clear => 스택 날림
+
+#### pull
+pull은 fetch + merge
 
 
 ### Reference 
