@@ -6,6 +6,7 @@ window객체의 하위 객체 들
 - DOM
 - JavaScript
 
+
 ### BOM
 alert
 
@@ -17,3 +18,6 @@ confirm
 prompt
 - 값을 입력받음
 
+location
+- location.href : 현재주소
+- location.host : 호스트 식별자
