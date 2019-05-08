@@ -160,3 +160,85 @@ var a = function() { ... }
 
 #### 비동기 처리
 Ajax : asynchronous javascript and XML
+
+
+#### 클로져(closure)
+- 내부함수가 외부함수의 맥락에 접근할 수 있는 것
+- private변수를 만든다?
+  - 전역변수의 사용을 지양하는 것처럼
+  - 변수에 대한 접근을 제한(get, set 등을 통해)함으로써 의도치 않은 변경을 제한
+    - set에서 type체크를 할 수도 있고... and so on.
+    
+#### arguments
+```javascript
+function one(arg1){
+    console.log(
+        'one.length', one.length,
+        'arguments', arguments.length
+    );
+}
+
+one('val1', 'val2'); // one.length 1 arguments 2
+```
+
+#### 함수의 호출
+```javascript
+function sum(arg1, arg2) {
+    return arg1+arg2;
+}
+//호출방법
+sum(1, 2);
+sum.apply(null, [1,2]);    // 첫번째 인자(null)은 함수가 실행되는 맥락.
+```
+
+apply
+- 주어진 'this' Object와 배열로 함수를 호출
+
+call
+- apply와 거의 동일
+- 여러 배열을 파라미터로 넘길 수 있음
+    - 함수명.call(this, name, price)
+```javascript
+function Product(name, price) {
+  this.name = name;
+  this.price = price;
+}
+function Food(name, price) {
+  Product.call(this, name, price);
+  this.category = 'food';
+}
+console.log(new Food('cheese', 5).name);
+// expected output: "cheese"
+```
+
+bind
+- 파라미터로 넘겨받은 value를 호출한 함수의 this에 대입하여 함수 생성
+
+
+
+## 객체 지향
+### 생성자와 new
+자바스크립트는 **prototype-based programming**
+
+#### 생성자
+new 함수명();
+- 비어있는 객체를 만들고 반환
+
+```javascript
+function Persion(){ }
+var p = new Person();
+```
+
+### 상속
+Prototype
+- [참고1 : 오승환님의 프로토타입 이해하기 블로그 글](https://medium.com/@bluesh55/javascript-prototype-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-f8e67c286b67)
+- [참고2 : Insanehone님의 프로토타입 이해하기 블로그 글](http://insanehong.kr/post/javascript-prototype/)
+- Prototype Object : 함수 선언과 동시에 생성
+    - constructor와 __proto__로 구성
+    - constructor : Prototype Object 생성을 야기한 함수
+    - __proto__ : Prototype Link
+        - Prototype Link : 객체 생성시 조상이었던 함수의 Prototype Object를 가리킴
+        - new 함수명(); 을 통해 객체를 생성한 경우라면 '함수명'의 Prototype Object임.
+        
+        
+~ 표준 내장 객체의 확장 까지 봄
