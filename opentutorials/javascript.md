@@ -241,4 +241,29 @@ Prototype
         - new 함수명(); 을 통해 객체를 생성한 경우라면 '함수명'의 Prototype Object임.
         
         
-~ 표준 내장 객체의 확장 까지 봄
+## Object
+Object.xxx vs Object.prototype.xxx 
+- Object.xxx : Object.xxx()를 통해 사용
+- Object.prototype.xxx : 생성한 객체가 바로 사용
+
+Object.prototype.XXX = function... 을 통해 사용자 정의 함수를 Object를 추가
+- for loop에서 정의한 function이 나와버림.
+- 기존 Object.prototype은 built in 이라 괜찮지만
+- 사용자 정의 property는 순환에 포함 됨
+```javascript
+Object.prototype.contain = function(param) {
+...
+}
+```
+
+## 데이터 타입
+### 원시 데이터 타입
+숫자, 문자열, 불리언, null, undefined
+
+### 래퍼 객체
+- 숫자 -> Number
+- 문자열 -> String
+- 불리언 -> Boolean
+- null, undefined -> 없음
+
+
